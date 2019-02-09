@@ -12,7 +12,7 @@ namespace FPS
 
 		protected override void FireAction()
 		{
-			var bullet = Instantiate(BulletPrefab);
+			var bullet = ObjectPool.Instance.GetObject(BulletID) as BaseAmmo;
 			bullet.Initialize (ShootForce, firepoint);			
 		}
 	} 

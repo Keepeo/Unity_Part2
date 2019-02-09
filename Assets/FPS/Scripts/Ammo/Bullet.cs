@@ -8,12 +8,25 @@ namespace FPS
 	{
         private float speed;
         private bool isHitted;
+        
+        [SerializeField]
+        private string poolID = "Bullet01";
+        public override string PoolID => poolID;
+
+        [SerializeField]
+        private int objectsCount = 10;
+        public override int ObjectsCount => objectsCount;
 
 		public override void Initialize(float force, Transform firepoint)
 		{
+            CancelInvoke();
+            isHitted=false;
 			Transform.position = firepoint.position;
 			Transform.rotation = firepoint.rotation;
             speed = force;
+
+            gameObject.SetActive(true);
+                        
 		}
         private void FixedUpdate()
         {
@@ -29,7 +42,8 @@ namespace FPS
                 var damageable = hit.collider.GetComponent<IDamageable>();
                 if (damageable != null) damageable.ApplyDamage(damage, transform.forward);
 
-                Destroy(gameObject, 0.3f);
+                //Destroy(gameObject, 0.3f);
+                Invoke("Disable", 0.3f);
 
             }
             else

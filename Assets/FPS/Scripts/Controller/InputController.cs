@@ -10,10 +10,14 @@ namespace FPS
 
 			if(Input.GetButtonDown("SwitchLight"))
 			Main.Instance.LigthController.SwitchLight();
-			if (Input.GetButtonDown("ChangeWeapon"));
+			if (Input.GetButtonDown("ChangeWeapon"))
 			Main.Instance.WeaponsController.ChangeWeapon();
-			if (Input.GetButton("Fire1"));
+			if (Input.GetButton("Fire1"))
 			Main.Instance.WeaponsController.Fire();
+			if (Input.GetButtonDown("TeammateCommand"))
+			Main.Instance.TeammateController.MoveComand();
+			
+			
 		}
 	}
 }

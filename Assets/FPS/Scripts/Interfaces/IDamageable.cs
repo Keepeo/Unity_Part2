@@ -6,7 +6,7 @@ namespace FPS
 {
 	public interface IDamageable
 	{
-		float CurrentHealht {get; }
+		float CurrentHealth {get; }
 		void ApplyDamage(float damage, Vector3 damageDirection);
 	}
 }

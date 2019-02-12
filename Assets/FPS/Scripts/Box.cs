@@ -8,7 +8,7 @@ namespace FPS
 	{
 		public float Health =100f;
 		
-		public float CurrentHealht => Health;
+		public float CurrentHealth => Health;
 		public void ApplyDamage(float damage, Vector3 damageDirection)
 		{
 			if (Health<=0) return;
